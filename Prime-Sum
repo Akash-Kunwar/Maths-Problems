@@ -1,0 +1,21 @@
+class Solution:
+    # @param A : integer
+    # @return a list of integers
+    def check(n):
+        if(n==1):
+            return False
+        if(n==2):
+            return True
+        for i in range(2,(n//2)+1):
+            if(n%i==0):
+                return False
+        return True
+    def primesum(self, A):
+        for i in range(A):
+            if(Solution.check(i)):
+                if(Solution.check(A-i)):
+                    return i,A-i
+
+
+Input : 4
+Output: 2 + 2 = 4
