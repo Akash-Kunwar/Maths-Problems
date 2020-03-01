@@ -1,0 +1,18 @@
+temp=input()
+temp=list(temp)
+i=0
+j=len(temp)-1
+while(i<len(temp) and i<=j):
+    print(temp[i],temp[j])
+    if(temp[i].isalpha() and temp[j].isalpha()):
+        t=temp[i]
+        temp[i]=temp[j]
+        temp[j]=t
+        j-=1
+        i+=1
+    elif(temp[i].isalpha()):
+        j-=1
+    elif(temp[j].isalpha()):
+        i+=1
+print(''.join(temp))
+    
