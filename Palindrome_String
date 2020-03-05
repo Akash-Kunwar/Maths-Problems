@@ -1,0 +1,34 @@
+Example:
+
+"A man, a plan, a canal: Panama" is a palindrome.
+
+"race a car" is not a palindrome.
+
+Return 0 / 1 ( 0 for false, 1 for true ) for this problem
+
+
+class Solution:
+    # @param A : string
+    # @return an integer
+    def isPalindrome(self, A):
+        count=1
+        i=0
+        j=len(A)-1
+        A=A.lower()
+        while(i<len(A) and j>=i):
+            if(A[i].isalnum() and A[j].isalnum()):
+                if(A[i]!=A[j]):
+                    count=0
+                    # print(A[i],A[j])
+                    break
+                else:
+                    i+=1
+                    j-=1
+            elif(A[i].isalnum()):
+                j-=1
+            elif(A[j].isalnum()):
+                i+=1
+            else:
+                i+=1
+                j-=1
+        return count
