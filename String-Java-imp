@@ -1,0 +1,8 @@
+public class Solution {
+    public String solve(String A) {
+        
+        String words[]=A.split(" ");
+        Collections.reverse(Arrays.asList(words));
+        return String.join(" ",words);
+    }
+}
