@@ -1,0 +1,52 @@
+input:8 14
+7 4 1 2 2 9 8 9
+
+output:
+min length of subarray:4
+{7,4,1,2} 
+
+
+
+1	public class MinimumLengthSubArraySum {
+2	
+3	    public static void main(String[] args) {
+4	        int[] array = {2,3,1,2,4,3};
+5	        int k = 7;
+6	        printMinSubArrayWithSum(array, k);
+//output:2 {4,3}
+7	    }
+8	    
+9	    public static void printMinSubArrayWithSum(int[] array, int k) {
+10	         
+11	        int start = -1;         
+12	        int end = -1;         
+13	        int min = Integer.MAX_VALUE;     
+14	        
+15	        for(int i = 0; i < array.length; i++) {
+16	            
+17	            int currentSum = 0;
+18	            for(int j = i; j < array.length && (j-i+1) < min; j++) {        
+19	                currentSum += array[j];
+20	                if(currentSum == k) {
+21	                    start = i;
+22	                    end = j;
+23	                    min = end - start + 1;
+24	                    break;
+25	                }            
+26	            }    
+27	        }
+28	
+29	        if(start == -1 || end == -1)  {
+30	            System.out.println("No subarray exists with sum = "  + k);
+31	            return ;
+32	        }
+33	
+34	        System.out.print("[ " );
+35	        while(start <= end) {
+36	            System.out.print(array[start] + " " );
+37	            start++;;
+38	        }        
+39	        System.out.println("]" );
+40	    }
+41	
+42	}
